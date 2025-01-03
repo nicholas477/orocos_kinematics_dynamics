@@ -13,6 +13,10 @@ FILE( GLOB UTIL_HPPS utilities/[^.]*.h utilities/[^.]*.hpp)
 #     SET(LIB_TYPE SHARED)
 # ENDIF(MSVC)
 
+IF(MSVC)
+  set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+ENDIF(MSVC)
+
 CONFIGURE_FILE(config.h.in config.h @ONLY)
 
 #### Settings for rpath
