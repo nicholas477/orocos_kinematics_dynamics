@@ -3,15 +3,8 @@ FILE( GLOB KDL_HPPS [^.]*.hpp [^.]*.inl)
 
 FILE( GLOB UTIL_HPPS utilities/[^.]*.h utilities/[^.]*.hpp)
 
-#In Windows (Visual Studio) it is necessary to specify the postfix
-#of the debug library name and no symbols are exported by kdl, 
-#so it is necessary to compile it as a static library
-# IF(MSVC)
-#     SET(CMAKE_DEBUG_POSTFIX "d")
-#     SET(LIB_TYPE STATIC)
-# ELSE(MSVC)
-#     SET(LIB_TYPE SHARED)
-# ENDIF(MSVC)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP")
 
 IF(MSVC)
   set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)

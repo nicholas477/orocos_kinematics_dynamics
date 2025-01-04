@@ -20,6 +20,12 @@
 #include "segment.hpp"
 
 namespace KDL {
+    Segment::Segment(const char* _name, const Joint& _joint, const Frame& _f_tip, const RigidBodyInertia& _I) :
+        name(_name),
+        joint(_joint), I(_I),
+        f_tip(_joint.pose(0).Inverse()* _f_tip)
+    {
+    }
 
     Segment::Segment(const std::string& _name, const Joint& _joint, const Frame& _f_tip, const RigidBodyInertia& _I):
         name(_name),

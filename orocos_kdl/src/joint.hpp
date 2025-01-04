@@ -45,6 +45,8 @@ namespace KDL {
     class Joint {
     public:
         typedef enum { RotAxis,RotX,RotY,RotZ,TransAxis,TransX,TransY,TransZ,Fixed,None=Fixed} JointType;
+        explicit Joint(const char* name, const JointType& type = Fixed, const double& scale = 1, const double& offset = 0,
+            const double& inertia = 0, const double& damping = 0, const double& stiffness = 0);
         /**
          * Constructor of a joint.
          *
@@ -109,6 +111,9 @@ namespace KDL {
          */
         Joint(const Vector& _origin, const Vector& _axis, const JointType& type, const double& _scale=1, const double& _offset=0,
 	      const double& _inertia=0, const double& _damping=0, const double& _stiffness=0);
+
+        Joint& operator=(const Joint& other);
+
 
         /**
          * Request the 6D-pose between the beginning and the end of
