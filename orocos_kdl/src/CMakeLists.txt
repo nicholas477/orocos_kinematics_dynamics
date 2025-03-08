@@ -4,9 +4,9 @@ FILE( GLOB KDL_HPPS [^.]*.hpp [^.]*.inl)
 FILE( GLOB UTIL_HPPS utilities/[^.]*.h utilities/[^.]*.hpp)
 
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP")
 
 IF(MSVC)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP")
   set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 ENDIF(MSVC)
 
